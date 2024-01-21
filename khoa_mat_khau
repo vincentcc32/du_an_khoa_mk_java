@@ -1,0 +1,84 @@
+public class Bai1{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String matkhau = null ;
+        int dem = 0 , daucach;
+        while(dem != 4){
+            daucach = 0;
+            dem = 0;
+          System.out.print("cai dat mat khau: ");
+          matkhau = scanner.nextLine();
+          // 6 khong lon hon 6 ki tu
+          if(matkhau.length() >= 6){
+              dem++;
+          }
+          if(dem != 1){
+              System.out.println("nhap du 6 ki tu1");
+              continue;
+          }
+            for(int j = 0 ; j < matkhau.length() ; j++){
+                char temp = matkhau.charAt(j);
+                if(Character.isLetter(temp)){
+                    dem++;
+                    break;
+                }
+            }
+            if(dem != 2){
+                System.out.println("phai co chu hoa hoac chu thuong!");
+                continue;
+            }
+            for(int j = 0 ; j < matkhau.length() ; j++){
+                char temp = matkhau.charAt(j);
+                if(Character.isDigit(temp)){
+                    dem++;
+                    break;
+                }
+            }
+            if(dem != 3){
+                System.out.println("phai phai co so!");
+                continue;
+            }
+            
+             for(int j = 0 ; j < matkhau.length() ; j++){
+                char temp = matkhau.charAt(j);
+                if(Character.isWhitespace(temp)){
+                    daucach++;
+                }
+            }
+            if(daucach != 0){
+                System.out.println("mat khau khong duoc chua dau cach!");
+                continue;
+            }
+            if(dem == 3) {
+                System.out.println("cai dat mk thanh cong!");
+                break;
+            }
+        }
+        // dang nhap
+        String dangnhap = null;
+        int tam;
+        for(int i = 1 ; i <= 5; i++){
+            System.out.print("dang nhap mat khau: ");
+            dangnhap = scanner.nextLine();
+            tam = dangnhap.compareTo(matkhau);
+            if(tam == 0){
+                System.out.println("ban da dang nhap thanh cong");
+                break;
+            }
+            else if(tam != 0){
+                System.out.println("nhap sai mat khau!");
+                if(i < 5){
+                continue;
+                }
+            }
+            if(i == 5){
+                System.out.println("ban da sai 5 lan va bi khoa!!!");
+                return;
+            }
+        }
+        System.out.println("wellcome");
+        System.out.println("mat khau cua ban la: " + matkhau);
+        }
+        
+        
+    }
